@@ -40,10 +40,6 @@ export default class CandleSticksChart extends HTMLElement {
             <canvas></canvas>
         `;
 
-        fetch('/docs/mock.json')
-            .then(response => response.json())
-            .then(data => this.updateData(data));
-
         this.#data = [];
         this.#canvas = shadow.querySelector('canvas')!;
         this.#context = this.#canvas.getContext('2d')!;
@@ -64,6 +60,10 @@ export default class CandleSticksChart extends HTMLElement {
 
         this.#canvas.addEventListener('mousemove', e => { this.draw(); this.drawCursor(e) });
         this.#canvas.addEventListener('mouseout', () => { this.draw(); });
+
+        fetch('/mock.json')
+            .then(response => response.json())
+            .then(data => this.updateData(data));
 
         this.draw();
     }
@@ -162,7 +162,7 @@ export default class CandleSticksChart extends HTMLElement {
                 candleHighHeight
             );
 
-            this.#context.globalAlpha = .4;
+            this.#context.globalAlpha = .2;
 
             const volumeHeight = ((this.#canvas.height / 3) * candle.volume) / highestVolume;
 
