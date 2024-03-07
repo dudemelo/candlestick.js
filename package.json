@@ -1,0 +1,32 @@
+{
+  "name": "candlestick.js",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "source": "src/main.ts",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@parcel/transformer-typescript-types": "^2.12.0",
+    "parcel": "^2.12.0",
+    "typescript": "^5.4.2"
+  },
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dudemelo/candlestick.js.git"
+  },
+  "author": "JF Melo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dudemelo/candlestick.js/issues"
+  },
+  "homepage": "https://github.com/dudemelo/candlestick.js#readme"
+}

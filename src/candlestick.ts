@@ -1,14 +1,18 @@
-'use strict';
+export default class CandleStick {
 
-class CandleStick {
+    #open: number;
+    #close: number;
+    #high: number;
+    #low: number;
+    #volume: number;
 
-    #open
-    #close
-    #high
-    #low
-    #volume
-
-    constructor(open, close, high, low, volume) {
+    constructor(
+        open: number,
+        close: number,
+        high: number,
+        low: number,
+        volume: number
+    ) {
         this.#open = open;
         this.#close = close;
         this.#high = high;
@@ -16,47 +20,45 @@ class CandleStick {
         this.#volume = volume;
     }
 
-    static width() {
+    static width(): number {
         return 8;
     }
 
-    get open() {
+    get open(): number {
         return this.#open
     }
 
-    get close() {
+    get close(): number {
         return this.#close;
     }
 
-    get high() {
+    get high(): number {
         return this.#high;
     }
 
-    get low() {
+    get low(): number {
         return this.#low;
     }
 
-    get volume() {
+    get volume(): number {
         return this.#volume;
     }
 
-    isBear() {
+    isBear(): boolean {
         return this.#open > this.#close;
     }
 
-    highLowWidth() {
+    highLowWidth(): number {
         return 1;
     }
 
-    height() {
+    height(): number {
         return this.isBear()
             ? this.#open - this.#close
             : this.#close - this.#open;
     }
 
-    highLowHeight() {
+    highLowHeight(): number {
         return this.#high - this.#low;
     }
 }
-
-export default CandleStick;
