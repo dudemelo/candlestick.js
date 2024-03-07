@@ -58,14 +58,10 @@ export default class CandleSticksChart extends HTMLElement {
 
         this.drawCursor = this.drawCursor.bind(this);
 
-        this.#canvas.addEventListener('mousemove', e => { this.draw(); this.drawCursor(e) });
-        this.#canvas.addEventListener('mouseout', () => { this.draw(); });
+        this.#canvas.addEventListener('mousemove', e => { this.#draw(); this.drawCursor(e) });
+        this.#canvas.addEventListener('mouseout', () => { this.#draw(); });
 
-        fetch('/mock.json')
-            .then(response => response.json())
-            .then(data => this.updateData(data));
-
-        this.draw();
+        this.#draw();
     }
 
     drawCursor(event: MouseEvent | MousePosition) {
@@ -102,7 +98,7 @@ export default class CandleSticksChart extends HTMLElement {
         this.#context.setLineDash([1]);
     }
 
-    draw(): void {
+    #draw(): void {
         this.#context.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
 
         this.#context.lineWidth = 1;
@@ -217,7 +213,7 @@ export default class CandleSticksChart extends HTMLElement {
         this.#lowestPrice = Math.min(...dataFlat) - priceRange;
         this.#priceFraction = (this.#highestPrice - this.#lowestPrice) / this.#horizontalLines;
 
-        this.draw();
+        this.#draw();
     }
 }
 

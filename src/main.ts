@@ -1,3 +1,3 @@
 import CandleSticksChart from './candlestick-chart';
 
-customElements.define('candlestick-chart', CandleSticksChart);
+export default CandleSticksChart;

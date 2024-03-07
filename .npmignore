@@ -3,4 +3,6 @@
 /public/
 /src/
 index.html
+.editorconfig
+vite.config.ts
 

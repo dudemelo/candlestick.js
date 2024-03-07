@@ -12,4 +12,11 @@
 <body>
 
     <candlestick-chart></candlestick-chart>
-    <script defer type="module" src="/src/main.ts"></script>
+    <script type="module">
+        import CandleSticksChart from './src/main.ts';
+        customElements.define('candlestick-chart', CandleSticksChart);
+        const el = document.querySelector('candlestick-chart');
+        fetch('/mock.json')
+            .then(res => res.json())
+            .then(data => console.log(el) || el.updateData(data));
+    </script>
