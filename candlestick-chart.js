@@ -29,6 +29,10 @@ class CandleSticksChart extends HTMLElement {
             <canvas></canvas>
         `;
 
+        fetch('/docs/mock.json')
+            .then(response => response.json())
+            .then(data => this.updateData(data));
+
         this.#data    = [];
         this.#canvas  = shadow.querySelector('canvas');
         this.#context = this.#canvas.getContext('2d');
